@@ -50,5 +50,15 @@ pipeline {
                 cleanWs()
             }
         }
+    post {
+        always {
+            echo 'Email Notification'
+            
+            emailext body: "${DEFAULT_CONTENT}",
+                recipientProviders: "${Default Recipients}"
+                subject: "${DEFAULT_SUBJECT}"
+            
+        }
+    }
     }      
   }
