@@ -57,7 +57,6 @@ pipeline {
             emailext body: '${DEFAULT_CONTENT}',
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: '${DEFAULT_SUBJECT}'
-            
         }
     }      
   }
