@@ -50,6 +50,7 @@ pipeline {
                 cleanWs()
             }
         }
+    }
     post {
         always {
             echo 'Email Notification'
@@ -59,6 +60,5 @@ pipeline {
                 subject: "${DEFAULT_SUBJECT}"
             
         }
-    }
     }      
   }
