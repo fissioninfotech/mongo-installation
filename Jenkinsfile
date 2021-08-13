@@ -58,6 +58,7 @@ pipeline {
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 to: '$DEFAULT_RECIPIENTS',
                 subject: '${DEFAULT_SUBJECT}'
-        }
+       
+      }
     }      
   }
