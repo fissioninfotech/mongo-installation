@@ -55,7 +55,7 @@ pipeline {
             echo 'Email Notification'
             
             emailext body: "${DEFAULT_CONTENT}",
-                recipientProviders: "${Default Recipients}"
+                recipientProviders: "${DEFAULT_RECIPIENTS}"
                 subject: "${DEFAULT_SUBJECT}"
             
         }
