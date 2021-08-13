@@ -55,9 +55,9 @@ pipeline {
         always {
             echo 'Email Notification'
             
-            emailext body: "${DEFAULT_CONTENT}",
-            recipientProviders: "${DEFAULT_RECIPIENTS}",
-            subject: "${DEFAULT_SUBJECT}"
+            emailext body: '${DEFAULT_CONTENT}',
+            recipientProviders: '${DEFAULT_RECIPIENTS}',
+            subject: '${DEFAULT_SUBJECT}'
             
         }
     }      
