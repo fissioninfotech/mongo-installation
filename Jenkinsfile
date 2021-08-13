@@ -9,6 +9,7 @@ pipeline {
       steps {
         // git branch: 'dev', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/nuke-web-api.git'
         git branch: 'main', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/mongo-installation.git'
+        echo"GitHub Webhook Success"
       }
     }
         
