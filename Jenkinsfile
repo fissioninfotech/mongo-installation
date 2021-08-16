@@ -62,7 +62,7 @@ pipeline {
             //     replyTo: '$DEFAULT_REPLYTO'
             emailext mimeType: 'text/html',
             body: '${FILE,path="/var/www/html/jenkins-email-templates/index.html"}', 
-            subject: 'Jenkins: Job '${env.JOB_NAME}' Status: currentBuild.result', 
+            subject: 'Jenkins Build: $PROJECT_NAME - #$BUILD_NUMBER - #$BUILD_STATUS',
             to: '$DEFAULT_RECIPIENTS'
        
       }
