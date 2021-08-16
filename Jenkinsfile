@@ -54,12 +54,16 @@ pipeline {
     post {
         always {
             echo 'Email Notification'
-            emailext body: '$DEFAULT_CONTENT',
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-                to: '$DEFAULT_RECIPIENTS',
-                subject: '$DEFAULT_SUBJECT',
-                // subject: 'Jenkins Build: $PROJECT_NAME - #$BUILD_NUMBER - #$BUILD_STATUS',
-                replyTo: '$DEFAULT_REPLYTO'
+            // emailext body: '$DEFAULT_CONTENT',
+            //     recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+            //     to: '$DEFAULT_RECIPIENTS',
+            //     subject: '$DEFAULT_SUBJECT',
+            //     // subject: 'Jenkins Build: $PROJECT_NAME - #$BUILD_NUMBER - #$BUILD_STATUS',
+            //     replyTo: '$DEFAULT_REPLYTO'
+            emailext mimeType: 'text/html',
+            body: '${FILE,path="/var/www/html/jenkins-email-templates/index.html"}', 
+            subject: 'Jenkins: Job '${env.JOB_NAME}' Status: currentBuild.result, 
+            to: '$DEFAULT_RECIPIENTS'
        
       }
     }      
