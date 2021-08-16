@@ -8,7 +8,7 @@ pipeline {
     stage('Cloning Git') {
       steps {
         // git branch: 'dev', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/nuke-web-api.git'
-        git branch: 'main', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/mongo-installation.git'
+        // git branch: 'main', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/mongo-installation.git'
         echo"GitHub Webhook Success"
       }
     }
@@ -54,7 +54,7 @@ pipeline {
     post {
         always {
             echo 'Email Notification'
-            emailext body: '$DEFAULT_CONTENT --#GIT_URL --#GIT_BRANCH --#GIT_COMMIT',
+            emailext body: '$DEFAULT_CONTENT',
             recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
             replyTo: '$DEFAULT_REPLYTO',
             // body: '${FILE,path="/var/www/html/jenkins-email-templates/temp.html"}', 
