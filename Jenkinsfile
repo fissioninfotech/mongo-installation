@@ -62,7 +62,7 @@ pipeline {
             //     replyTo: '$DEFAULT_REPLYTO'
             emailext mimeType: 'text/html',
             body: '${FILE,path="/var/www/html/jenkins-email-templates/temp.html"}', 
-            subject: '$DEFAULT_SUBJECT',
+            subject: '$DEFAULT_SUBJECT -#$JOB_NAME',
             to: '$DEFAULT_RECIPIENTS'
        
       }
