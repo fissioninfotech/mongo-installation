@@ -54,7 +54,7 @@ pipeline {
     post {
         always {
             echo 'Email Notification'
-            emailext body: '$DEFAULT_CONTENT',
+            emailext body: '$DEFAULT_CONTENT --#GIT_URL --#GIT_BRANCH --#GIT_COMMIT',
             recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
             replyTo: '$DEFAULT_REPLYTO',
             // body: '${FILE,path="/var/www/html/jenkins-email-templates/temp.html"}', 
