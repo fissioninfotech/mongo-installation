@@ -54,10 +54,10 @@ pipeline {
     post {
         always {
             echo 'Email Notification'
-            emailext body: '$DEFAULT_CONTENT',
+            // emailext body: '$DEFAULT_CONTENT',
             recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
             replyTo: '$DEFAULT_REPLYTO',
-            // body: '${FILE,path="/var/www/html/jenkins-email-templates/temp.html"}', 
+            emailext body: '${script,path="/var/www/html/jenkins-email-templates/temp.html"}',
             subject: '$DEFAULT_SUBJECT',
             to: '$DEFAULT_RECIPIENTS'
        
