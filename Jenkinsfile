@@ -55,7 +55,8 @@ pipeline {
         always {
             echo 'Email Notification'
             // emailext body: '$DEFAULT_CONTENT',
-            emailext body: '${script,path="/var/www/html/jenkins-email-templates/temp.html"}',
+            emailext mimeType: 'text/html',
+            body: '${script,path="/var/www/html/jenkins-email-templates/temp.html"}',
             recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
             replyTo: '$DEFAULT_REPLYTO',
             subject: '$DEFAULT_SUBJECT',
