@@ -8,7 +8,7 @@ pipeline {
     stage('Cloning Git') {
       steps {
         // git branch: 'dev', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/nuke-web-api.git'
-        // git branch: 'main', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/mongo-installation.git'
+         git branch: 'master', credentialsId: '8f86369d-6c3f-4118-b2f4-09c2a069cb4e', url: 'git@github.com:fissioninfotech/mongo-installation.git'
         echo"GitHub Webhook Success"
       }
     }
@@ -21,7 +21,7 @@ pipeline {
     // }
     // stage('Deploy') {
     //   steps {
-    //     sh 'scp -r ${WORKSPACE}/bin root@139.59.40.195:/var/www/html/NUKE/api/'
+     sh 'scp -r ${WORKSPACE}/bin root@:/var/www/html/NUKE/api/'
     //     sh 'scp -r ${WORKSPACE}/process root@139.59.40.195:/var/www/html/NUKE/api/'
     //     sh 'scp -r ${WORKSPACE}/public/stylesheets root@139.59.40.195:/var/www/html/NUKE/api/'
     //     sh 'scp -r ${WORKSPACE}/routes root@139.59.40.195:/var/www/html/NUKE/api/'
@@ -59,7 +59,7 @@ pipeline {
             replyTo: '$DEFAULT_REPLYTO',
             subject: '$DEFAULT_SUBJECT',
             // to: '$DEFAULT_RECIPIENTS'
-            to: 'gopikrishna.vellanki@fission.it',
+            to: 'gopikrishna.vellanki@fission.it'
        
       }
       failure {
