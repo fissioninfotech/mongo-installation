@@ -63,6 +63,8 @@ pipeline {
        
       }
       failure {
+        scripts{
+          if (currentBuild.currentResult == 'FAILURE') {
             echo 'Email Notification'
             emailext body: '$DEFAULT_CONTENT',
             recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
@@ -70,7 +72,8 @@ pipeline {
             subject: '$DEFAULT_SUBJECT',
             // to: '$DEFAULT_RECIPIENTS'
             to: 'gopikrishna.vellanki@fission.it'
-       
+          }
+        }
       }
     }      
   }
