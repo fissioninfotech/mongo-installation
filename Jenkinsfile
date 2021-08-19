@@ -58,7 +58,18 @@ pipeline {
             recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
             replyTo: '$DEFAULT_REPLYTO',
             subject: '$DEFAULT_SUBJECT',
-            to: '$DEFAULT_RECIPIENTS'
+            // to: '$DEFAULT_RECIPIENTS'
+            to: 'gopikrishna.vellanki@fission.it',
+       
+      }
+      failure {
+            echo 'Email Notification'
+            emailext body: '$DEFAULT_CONTENT',
+            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+            replyTo: '$DEFAULT_REPLYTO',
+            subject: '$DEFAULT_SUBJECT',
+            // to: '$DEFAULT_RECIPIENTS'
+            to: 'gopikrishna.vellanki@fission.it'
        
       }
     }      
