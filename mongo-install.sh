@@ -14,6 +14,6 @@ if [ ! -f /usr/bin/mongod ]
 else
   echo "mongo db already installed.  Skipping..."
 fi
-mongo--version
-#systemctl start mongodb
-#systemctl status mongodb
+mongo --version
+systemctl start mongodb
+systemctl status mongodb
