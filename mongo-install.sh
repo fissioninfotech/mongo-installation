@@ -15,5 +15,5 @@ else
   echo "mongo db already installed.  Skipping..."
 fi
 mongo --version
-systemctl start mongodb
-systemctl status mongodb
+systemctl start mongod
+systemctl status mongod
